@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+    "target": "ES5", // 可根据需要选择
+    "lib": ["dom", "esnext"], // 使用 ESNext 和 DOM 库
+    "allowJs": true, // 允许 JS 文件与 TS 文件一起工作
+    "jsx": "react-jsx", // React 17 的 JSX 转换方式
+    "moduleResolution": "node",
+    "strict": true, // 启用所有严格类型检查
+    "esModuleInterop": true, // 启用 ES6 模块互操作性
+    "skipLibCheck": true, // 跳过库文件类型检查
+    "forceConsistentCasingInFileNames": true, // 强制文件名大小写一致
+    "outDir": "./dist", // 编译输出目录
+    "baseUrl": ".", // 基础路径
+    "paths": {
+      "@/*": ["src/*"] // 配置路径别名
+    }
+  },
+  "include": ["src"], // 编译源代码目录
+  "exclude": ["node_modules", "build"] // 排除编译目录
+}
