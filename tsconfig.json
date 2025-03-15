@@ -11,6 +11,8 @@
     "forceConsistentCasingInFileNames": true, // 强制文件名大小写一致
     "outDir": "./dist", // 编译输出目录
     "baseUrl": ".", // 基础路径
+    "noEmit": true, // 阻止ts生成编译后的js文件，仅用于类型检查
+    "allowImportingTsExtensions": true, // 允许导入 TS 文件
     "paths": {
       "@/*": ["src/*"] // 配置路径别名
     }
