@@ -1,0 +1,19 @@
+.mainNav {
+  .avator {
+    text-align: center;
+    margin-bottom: var(--primary-vertical-padding);
+    img {
+      width: 40px;
+    }
+  }
+  .customChild {
+    transition: opacity 0.25s;
+    opacity: 0.6;
+    &:hover {
+      opacity: 1;
+    }
+    + .customChild {
+      margin-top: var(--primary-vertical-padding);
+    }
+  }
+}

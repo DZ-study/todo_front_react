@@ -1,0 +1,13 @@
+.layout {
+  display: flex;
+  height: 100vh;
+  .left {
+    width: 60px;
+    padding: var(--primary-vertical-padding) 0;
+    justify-content: center;
+    background-color: rgb(241, 244, 255);
+  }
+  .right {
+    flex: 1;
+  }
+}

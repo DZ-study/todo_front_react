@@ -1,6 +1,6 @@
 import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from 'axios'
 import { message } from 'antd'
-
+import { navigateTo } from '@/utils/nav'
 // ✅ 定义接口，约束 API 响应数据的格式
 interface ApiResponse<T = any> {
   code: number
@@ -20,7 +20,6 @@ service.interceptors.request.use(
   config => {
     // 这里可以添加 Token
     const token = localStorage.getItem('token')
-    console.log(token)
     if (token) {
       config.headers.Authorization = `Bearer ${token}`
     }
@@ -35,8 +34,6 @@ service.interceptors.request.use(
 // ✅ 响应拦截器（统一处理返回的数据 & 错误）
 service.interceptors.response.use(
   (response: AxiosResponse<ApiResponse<any>>) => {
-    console.log(222, response)
-
     if (response.data.code !== 200) {
       message.error(response.data.message || '请求错误')
       return Promise.reject(response.data)
@@ -45,12 +42,11 @@ service.interceptors.response.use(
     return response.data as any
   },
   error => {
-    console.log(333, error)
     const { code, message: msg } = error.response?.data || {}
     message.error(msg || '服务器错误')
     if (code === 403) {
       // Token无效，跳转到登录页
-      // navigate('/login')
+      navigateTo('/login')
     } else {
       return Promise.reject(error.response?.data)
     }
