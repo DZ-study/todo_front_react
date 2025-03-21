@@ -1,6 +1,7 @@
 {
   "compilerOptions": {
     "target": "ES5", // 可根据需要选择
+    "module": "ESNext", // 可根据需要选择
     "lib": ["dom", "esnext"], // 使用 ESNext 和 DOM 库
     "allowJs": true, // 允许 JS 文件与 TS 文件一起工作
     "jsx": "react-jsx", // React 17 的 JSX 转换方式

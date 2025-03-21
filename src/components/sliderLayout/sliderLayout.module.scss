@@ -1,0 +1,47 @@
+.container {
+  display: flex;
+  height: 100%;
+  flex-direction: row;
+}
+
+.sider {
+  position: relative;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.isLast {
+  flex: 1 !important;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.resizerContainer {
+  position: relative;
+  width: 16px;
+  margin: 0 -8px;
+  z-index: 1;
+  cursor: col-resize;
+}
+
+.resizer {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 100%;
+  background: rgba(68, 68, 68, 0.1);
+}
+
+.sider:first-child .resizer {
+  right: 0;
+}
+
+.sider:last-child .resizer {
+  left: 0;
+}

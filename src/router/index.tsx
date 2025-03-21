@@ -2,11 +2,13 @@ import { lazy, Suspense, ReactNode, FC, useEffect } from 'react'
 import { Routes, Route, useNavigate } from 'react-router-dom'
 import { setNavigate } from '@/utils/nav.ts'
 // 懒加载页面组件
-const Layout = lazy(() => import('@/components/Layout'))
+const Layout = lazy(() => import('@/components/layout/Layout'))
 const Login = lazy(() => import('@/views/user/Login'))
 const Register = lazy(() => import('@/views/user/Register'))
 const Home = lazy(() => import('@/views/Home'))
 const TaskList = lazy(() => import('@/views/task/Task'))
+const AllQuadrant = lazy(() => import('@/views/quadrant/AllQuadrant'))
+const Calendar = lazy(() => import('@/views/calendar/Calendar'))
 
 // 自定义路由类型
 interface RouteConfig {
@@ -24,7 +26,9 @@ const routes: RouteConfig[] = [
     element: <Layout />,
     children: [
       { path: '/home', element: <Home /> },
-      { path: '/task', element: <TaskList /> }
+      { path: '/task', element: <TaskList /> },
+      { path: '/quadrant', element: <AllQuadrant /> },
+      { path: '/calendar', element: <Calendar /> }
     ]
   }
 ]

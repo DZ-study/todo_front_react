@@ -1,6 +1,7 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
-import MainNav from './MainNav'
+import MainNav from '../mainNav/MainNav'
+import SliderLayout from '../sliderLayout/SliderLayout'
 import styles from './layout.module.scss'
 
 const Layout: React.FC = () => {

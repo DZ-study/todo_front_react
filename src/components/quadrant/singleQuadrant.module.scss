@@ -1,0 +1,11 @@
+.quadrant {
+  background: #ffffff;
+  border-radius: 8px;
+  padding: var(--primary-vertical-padding);
+  .title {
+    display: flex;
+    justify-content: flex-start;
+    gap: 8px;
+    font-size: 16px;
+  }
+}
