@@ -1,6 +1,8 @@
 .quadrant {
   background: #ffffff;
-  border-radius: 8px;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
   padding: var(--primary-vertical-padding);
   .title {
     display: flex;
@@ -8,4 +10,22 @@
     gap: 8px;
     font-size: 16px;
   }
+}
+
+:global(.ant-checkbox-checked .ant-checkbox-inner) {
+  background-color: var(--checkbox-color, --primary-color) !important;
+  border-color: var(--checkbox-color, --primary-color) !important;
+}
+:global(.ant-checkbox-inner),
+:global(.ant-checkbox:hover .ant-checkbox-inner) {
+  border-color: var(--checkbox-color, --primary-color) !important;
+}
+
+:global(.ant-collapse-header) {
+  padding-top: 5px !important;
+  padding-bottom: 0 !important;
+}
+:global(.ant-collapse-header-text) {
+  font-size: 12px !important;
+  font-weight: 600 !important;
 }

@@ -25,4 +25,5 @@ export interface IPriorityTask {
   titleColor: string // 标题颜色
   color: string // 复选框颜色
   taskObj: { [key in TTaskGroupType]: ITask[] }
+  onChange?: (task: ITask) => void
 }

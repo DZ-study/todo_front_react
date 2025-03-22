@@ -1,0 +1,22 @@
+.allQuadrant {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  font-size: 14px;
+  .title {
+    padding-left: 14px;
+  }
+  .quadrantContainer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    flex: 1;
+    background-color: #f5f5f5;
+    .quadrantBox {
+      flex: 1;
+      min-width: calc(50% - 5px); /* 保证两列布局 */
+      height: calc(50% - 5px); /* 保证两行布局 */
+    }
+  }
+}

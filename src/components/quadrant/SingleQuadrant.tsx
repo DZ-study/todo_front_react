@@ -1,7 +1,7 @@
 // 单个象限组件
 import React, { useEffect, useState } from 'react'
-import type { CollapseProps } from 'antd'
-import { Collapse } from 'antd'
+import type { CollapseProps, CheckboxProps } from 'antd'
+import { Collapse, Checkbox, Flex } from 'antd'
 import styles from './singleQuadrant.module.scss'
 import { ITask, TTaskGroupType } from '@/types/models'
 import SvgIcon from '@/components/svgIcon/SvgIcon'
@@ -21,16 +21,27 @@ const taskGroupLabelMap: { [key in TTaskGroupType]: string } = {
 const SingleQuadrant: React.FC<IPriorityTask> = props => {
   const { title, icon, color, titleColor, taskObj } = props
   const [collapseItem, setCollapseItem] = useState<CollapseProps['items']>([])
+  const activeKeys = Object.keys(taskObj)
+
+  const handleChange = (task: ITask) => {
+    const onChange = props.onChange
+    if (!onChange) return
+    onChange(task)
+  }
 
   useEffect(() => {
     const items: CollapseProps['items'] = []
-    Object.keys(taskObj).forEach((key: string) => {
+    activeKeys.forEach((key: string) => {
       items.push({
         key,
         // 通过类型断言确保可以使用 string 类型的 key 来索引 taskGroupLabelMap
         label: taskGroupLabelMap[key as TTaskGroupType],
         children: taskObj[key as TTaskGroupType].map(task => (
-          <div key={task.id}>{task.title}</div>
+          <Flex key={task.id}>
+            <Checkbox onChange={() => handleChange(task)}>
+              {task.title}
+            </Checkbox>
+          </Flex>
         ))
       })
     })
@@ -43,7 +54,7 @@ const SingleQuadrant: React.FC<IPriorityTask> = props => {
         <SvgIcon name={icon} width={18} />
         <span style={{ color: titleColor }}>{title}</span>
       </div>
-      <Collapse defaultActiveKey={['1']} ghost items={collapseItem} />
+      <Collapse activeKey={activeKeys} ghost items={collapseItem} />
     </div>
   )
 }
